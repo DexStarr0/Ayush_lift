@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ayush Lifts</title>
+    <!-- Google Fonts: Rochester for headings, Montserrat for body -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Rochester&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #27ae60;
+        --accent-color: #e74c3c;
+        --light-bg: #ffffff;
+        --muted-bg: #ecf0f1;
+        --border-color: #ddd;
+        --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Global Styles */
+      body {
+        font-family: "Montserrat", sans-serif;
+        background: linear-gradient(135deg, #f0f2f5, #d9e2ec);
+        margin: 0;
+        padding: 0;
+        color: var(--primary-color);
+      }
+
+      /* Modern Header Banner */
+      header {
+        /* background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); */
+        background-color: grey;
+        padding: 5px 20px;
+        text-align: center;
+        color: #fff;
+        box-shadow: var(--shadow);
+      }
+      header h1 {
+        font-family: "Rochester", cursive;
+        font-size: 3em;
+        margin: 0;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      header .tagline {
+        font-size: 1.2em;
+        margin-top: 10px;
+        font-weight: 500;
+        opacity: 0.9;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 0 10px;
+      }
+
+      /* Remove Touch Delay */
+      .global-accordion-header,
+      .day-header,
+      .tab-button {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+        cursor: pointer;
+      }
+
+      /* Arrow Icon for Headers */
+      .arrow {
+        float: right;
+        transition: transform 0.3s ease;
+        font-size: 20px;
+      }
+      /* When header is active, rotate the arrow */
+      .global-accordion-header.active .arrow,
+      .day-header.active .arrow {
+        transform: rotate(180deg);
+      }
+
+      /* Global Daily Warm-Up Accordion Styles */
+      .global-accordion-header {
+        display: block;
+        background: linear-gradient(45deg, var(--secondary-color), #1f8a4d);
+        color: #fff;
+        padding: 15px;
+        font-size: 20px;
+        border-radius: 8px;
+        /* margin-bottom: 10px; */
+        box-shadow: var(--shadow);
+        transition: background 0.3s;
+      }
+      .global-accordion-header:hover {
+        background: linear-gradient(45deg, #1f8a4d, var(--secondary-color));
+      }
+      .global-accordion-content {
+        /* width: 100%; */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        border-radius: 8px;
+        background: var(--light-bg);
+        box-shadow: var(--shadow);
+        margin-bottom: 20px;
+      }
+
+      /* Day Accordion Styles */
+      .day {
+        background: var(--light-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+      .day-header {
+        background: linear-gradient(45deg, var(--primary-color), #34495e);
+        color: #fff;
+        padding: 15px;
+        font-size: 18px;
+        border-radius: 8px 8px 0 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        transition: background 0.3s;
+      }
+      .day-header:hover {
+        background: linear-gradient(45deg, #3a566e, var(--primary-color));
+      }
+      .day-content {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in;
+      }
+
+      /* Tab Styles */
+      .tabs {
+        margin-top: 10px;
+      }
+      .tab-buttons {
+        display: flex;
+        border-bottom: 2px solid var(--border-color);
+      }
+      .tab-button {
+        flex: 1;
+        padding: 12px;
+        text-align: center;
+        background: var(--muted-bg);
+        color: var(--primary-color);
+        transition: background 0.3s;
+        font-weight: 500;
+        border: none;
+        outline: none;
+      }
+      .tab-button:hover {
+        background: #d0d7de;
+      }
+      .tab-button.active {
+        background: var(--light-bg);
+        border-bottom: 3px solid var(--primary-color);
+      }
+      .tab-content {
+        display: none;
+        padding: 15px 0;
+      }
+      .tab-content.active {
+        display: block;
+      }
+
+      /* Table Styles */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+      }
+      th,
+      td {
+        padding: 10px 12px;
+        border: 1px solid var(--border-color);
+        text-align: left;
+      }
+      th {
+        background: var(--primary-color);
+        color: #fff;
+      }
+      tbody tr:nth-child(even) {
+        background: #f8f8f8;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 600px) {
+        header h1 {
+          font-size: 2.8em;
+        }
+        header .tagline {
+          font-size: 1em;
+        }
+        .global-accordion-header,
+        .day-header,
+        .tab-button {
+          padding: 10px;
+          font-size: 13px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Ayush Lifts</h1>
+      <!-- <div class="tagline">Your Ultimate Fitness Companion</div> -->
+    </header>
+    <div class="container">
+      <!-- Global Daily General Warm-Up Accordion -->
+      <div id="globalWarmUpAccordion">
+        <div class="global-accordion-header">
+          Daily General Warm-Up <span class="arrow">▼</span>
+        </div>
+        <div class="global-accordion-content" id="globalWarmUpContent">
+          <!-- Table for Daily General Warm-Up will be injected here -->
+        </div>
+      </div>
+
+      <!-- Container for Day-specific Accordions -->
+      <div id="workoutContainer"></div>
+    </div>
+
+    <script>
+      /**************************************
+       * Global Daily Warm-Up Data
+       **************************************/
+      const globalDailyWarmUp = [
+        "Treadmill brisk walk, cycling, or jump rope. (Duration: 3–5 minutes.)",
+        "Arm Circles (1 minute : forward + backward.",
+        "Leg Swings (10 reps/side : front-to-back + side-to-side).",
+        "Torso Twists (10 reps/side.)",
+        "Cat-Cow Stretch (10 reps : mobilize the spine).",
+        "Shoulder Dislocations (10 reps : use a resistance band or broomstick).",
+        "Hip Openers (10 reps/side : deep bodyweight squats or lunges with a twist).",
+        "Ankle Rolls (10 reps/side.)",
+      ];
+
+      /**************************************
+       * Workout Data Object (day-specific)
+       **************************************/
+      const workoutData = {
+        "Day 1": {
+          name: "Day 1: Chest & Triceps (Upper Chest Focus)",
+          specificWarmUp: [
+            "Band Chest Stretch (1 minute): hold a band behind your back and stretch the chest.",
+            "Incline Push-Ups (2 sets x 15 reps): warm up shoulders and chest.",
+            "Tricep Dips Bodyweight (2 sets x 10–12 reps).",
+            "Band External Rotations (2 sets x 15 reps/side).",
+          ],
+          mainExercises: [
+            "Incline Dumbbell Press (4 sets x 8-12 reps)",
+            "Low-Incline Smith Machine Press (4 sets x 10-12 reps)",
+            "Cable Chest Flyes (30° Incline) (3 sets x 12-15 reps + 1 drop set)",
+            "Weighted Dips (3 sets x 8-10 reps)",
+            "Overhead Tricep Extension (3 sets x 12-15 reps)",
+            "Single-Arm Cable Pushdowns (3 sets x 15-20 reps)",
+            "Core Finisher: Decline Bench Cable Crunches (3 sets x 15-20 reps)",
+          ],
+        },
+        "Day 2": {
+          name: "Day 2: Back & Biceps (Rear Delts + Thickness)",
+          specificWarmUp: [
+            "Lat Stretch (1 minute/side): hang from a pull-up bar or doorframe.",
+            "Band Pull-Apart (2 sets x 20 reps): activate rear delts and upper back.",
+            "Band Rows or Empty-Bar Bent-Over Rows (2 sets x 12 reps).",
+            "Light Hammer Curls (2 sets x 15 reps): use 40% of your working weight.",
+          ],
+          mainExercises: [
+            "Deadlift (4 sets x 5-7 reps)",
+            "Wide-Grip Pull-Ups (4 sets x AMRAP)",
+            "T-Bar Rows (4 sets x 8-12 reps)",
+            "Face Pulls (4 sets x 15-20 reps)",
+            "Preacher Curl (4 sets x 8-12 reps)",
+            "Reverse Curl (3 sets x 10-12 reps)",
+            "Core Finisher: Hanging Leg Raises (3 sets x 12-15 reps)",
+          ],
+        },
+        "Day 3": {
+          name: "Day 3: Legs & Shoulders (Heavy Legs + Delts)",
+          specificWarmUp: [
+            "Bodyweight Squats (2 sets x 20 reps): focus on depth.",
+            "Lateral Lunges (10 reps/side).",
+            "Empty-Bar Overhead Press (2 sets x 12 reps).",
+            "Scapular Push-Ups (2 sets x 10 reps): strengthen shoulder blades.",
+            "Glute Bridges (2 sets x 15 reps): fire up the posterior chain.",
+          ],
+          mainExercises: [
+            "Barbell Overhead Press (4 sets x 6-8 reps)",
+            "Front Squats (4 sets x 6-8 reps)",
+            "Lateral Raises (Pyramid Sets) (4 sets x 12-20 reps)",
+            "Romanian Deadlifts (4 sets x 8-10 reps)",
+            "Leg Extensions (3 sets x 15-20 reps)",
+            "Bent-Over Lateral Raises (3 sets x 12-15 reps)",
+            "Core Finisher: Russian Twists (Weighted) (3 sets x 20 reps/side)",
+          ],
+        },
+        "Day 4": {
+          name: "Day 4: Chest & Triceps (Full Chest + Pump)",
+          specificWarmUp: [
+            "Band Chest Stretch (1 minute): hold a band behind your back and stretch the chest.",
+            "Incline Push-Ups (2 sets x 15 reps): warm up shoulders and chest.",
+            "Tricep Dips Bodyweight (2 sets x 10–12 reps).",
+            "Band External Rotations (2 sets x 15 reps/side).",
+          ],
+          mainExercises: [
+            "Incline Hex Press (4 sets x 8-12 reps)",
+            "Flat Dumbbell Press (4 sets x 10-12 reps)",
+            "Pec Deck Flyes (3 sets x 15-20 reps)",
+            "Close-Grip Bench Press (3 sets x 8-10 reps)",
+            "Skull Crushers (3 sets x 10-12 reps)",
+            "Tricep Rope Pushdowns (3 sets x 15-20 reps)",
+            "Core Finisher: Plank with Shoulder Taps (3 sets x 45-60 sec)",
+          ],
+        },
+        "Day 5": {
+          name: "Day 5: Back & Biceps (Upper Back + Width)",
+          specificWarmUp: [
+            "Lat Stretch (1 minute/side): hang from a pull-up bar or doorframe.",
+            "Band Pull-Apart (2 sets x 20 reps): activate rear delts and upper back.",
+            "Band Rows or Empty-Bar Bent-Over Rows (2 sets x 12 reps).",
+            "Light Hammer Curls (2 sets x 15 reps): use 40% of your working weight.",
+          ],
+          mainExercises: [
+            "Weighted Chin-Ups (4 sets x 6-8 reps)",
+            "Single-Arm Dumbbell Rows (4 sets x 8-12 reps)",
+            "Lat Pulldown (Wide Grip) (3 sets x 12-15 reps)",
+            "Cable Upright Rows (3 sets x 12-15 reps)",
+            "Hammer Curl (4 sets x 10-12 reps)",
+            "Spider Curl (3 sets x 12-15 reps)",
+            "Core Finisher: Cable Woodchoppers (3 sets x 12-15 reps/side)",
+          ],
+        },
+        "Day 6": {
+          name: "Day 6: Legs & Shoulders (Hypertrophy Legs + Delts)",
+          specificWarmUp: [
+            "Bodyweight Squats (2 sets x 20 reps): focus on depth.",
+            "Lateral Lunges (10 reps/side).",
+            "Empty-Bar Overhead Press (2 sets x 12 reps).",
+            "Scapular Push-Ups (2 sets x 10 reps): strengthen shoulder blades.",
+            "Glute Bridges (2 sets x 15 reps): fire up the posterior chain.",
+          ],
+          mainExercises: [
+            "Bulgarian Split Squats (4 sets x 10-12 reps/leg)",
+            "Seated Dumbbell Overhead Press (4 sets x 8-12 reps)",
+            "Leg Press (4 sets x 15-20 reps)",
+            "Cable Lateral Raises (3 sets x 15-20 reps)",
+            "Hack Squats (3 sets x 10-12 reps)",
+            "Standing Calf Raises (4 sets x 20-25 reps)",
+            "Plate Front Raises (3 sets x 12-15 reps)",
+            "Core Finisher: Dragon Flags (3 sets x 8-12 reps)",
+          ],
+        },
+      };
+
+      /**************************************
+       * Helper Function: parseExercise
+       **************************************/
+      function parseExercise(exerciseStr) {
+        exerciseStr = exerciseStr.replace("):", ":");
+        const index = exerciseStr.indexOf("(");
+        if (index !== -1) {
+          const name = exerciseStr.slice(0, index).trim();
+          let detail = exerciseStr.slice(index + 1).trim();
+          if (detail.endsWith(")")) {
+            detail = detail.slice(0, -1).trim();
+          }
+          return { name, detail };
+        }
+        return { name: exerciseStr, detail: "" };
+      }
+
+      /**************************************
+       * Helper Function: createExerciseTable
+       **************************************/
+      function createExerciseTable(exercises) {
+        const table = document.createElement("table");
+        const thead = document.createElement("thead");
+        const headerRow = document.createElement("tr");
+        const th1 = document.createElement("th");
+        th1.textContent = "Exercise";
+        const th2 = document.createElement("th");
+        th2.textContent = "Reps / Details";
+        headerRow.appendChild(th1);
+        headerRow.appendChild(th2);
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        const tbody = document.createElement("tbody");
+        exercises.forEach((exStr) => {
+          const { name, detail } = parseExercise(exStr);
+          const row = document.createElement("tr");
+          const tdName = document.createElement("td");
+          tdName.textContent = name;
+          const tdDetail = document.createElement("td");
+          tdDetail.textContent = detail;
+          row.appendChild(tdName);
+          row.appendChild(tdDetail);
+          tbody.appendChild(row);
+        });
+        table.appendChild(tbody);
+        return table;
+      }
+
+      /**************************************
+       * Render Global Daily General Warm-Up Accordion
+       **************************************/
+      (function renderGlobalWarmUp() {
+        const globalContent = document.getElementById("globalWarmUpContent");
+        globalContent.appendChild(createExerciseTable(globalDailyWarmUp));
+
+        const globalHeader = document.querySelector(".global-accordion-header");
+        globalHeader.addEventListener("click", function () {
+          if (
+            globalContent.style.maxHeight &&
+            globalContent.style.maxHeight !== "0px"
+          ) {
+            globalContent.style.maxHeight = "0";
+            globalHeader.classList.remove("active");
+          } else {
+            globalContent.style.maxHeight = "500px";
+            globalHeader.classList.add("active");
+          }
+        });
+      })();
+
+      /**************************************
+       * Render Day-specific Accordions with Tabs
+       **************************************/
+      const workoutContainer = document.getElementById("workoutContainer");
+      Object.keys(workoutData).forEach((dayKey) => {
+        const dayData = workoutData[dayKey];
+
+        const dayDiv = document.createElement("div");
+        dayDiv.className = "day";
+
+        const dayHeader = document.createElement("div");
+        dayHeader.className = "day-header";
+        // Set header text and append arrow span
+        dayHeader.innerHTML = dayData.name + ' <span class="arrow">▼</span>';
+        dayDiv.appendChild(dayHeader);
+
+        const dayContent = document.createElement("div");
+        dayContent.className = "day-content";
+
+        // Create tabs container
+        const tabsContainer = document.createElement("div");
+        tabsContainer.className = "tabs";
+
+        // Create tab buttons row
+        const tabButtons = document.createElement("div");
+        tabButtons.className = "tab-buttons";
+
+        const tabButtonSpecific = document.createElement("div");
+        tabButtonSpecific.className = "tab-button active";
+        tabButtonSpecific.textContent = "Specific Warm-Ups";
+        tabButtonSpecific.dataset.tab = "specific";
+
+        const tabButtonMain = document.createElement("div");
+        tabButtonMain.className = "tab-button";
+        tabButtonMain.textContent = "Main Exercises";
+        tabButtonMain.dataset.tab = "main";
+
+        tabButtons.appendChild(tabButtonSpecific);
+        tabButtons.appendChild(tabButtonMain);
+        tabsContainer.appendChild(tabButtons);
+
+        // Create tab content containers
+        const tabContentSpecific = document.createElement("div");
+        tabContentSpecific.className = "tab-content active";
+        tabContentSpecific.appendChild(
+          createExerciseTable(dayData.specificWarmUp)
+        );
+
+        const tabContentMain = document.createElement("div");
+        tabContentMain.className = "tab-content";
+        tabContentMain.appendChild(createExerciseTable(dayData.mainExercises));
+
+        tabsContainer.appendChild(tabContentSpecific);
+        tabsContainer.appendChild(tabContentMain);
+
+        // Tab button event listeners
+        tabButtonSpecific.addEventListener("click", function () {
+          tabButtonSpecific.classList.add("active");
+          tabButtonMain.classList.remove("active");
+          tabContentSpecific.classList.add("active");
+          tabContentMain.classList.remove("active");
+          dayContent.style.maxHeight = "800px";
+        });
+
+        tabButtonMain.addEventListener("click", function () {
+          tabButtonMain.classList.add("active");
+          tabButtonSpecific.classList.remove("active");
+          tabContentMain.classList.add("active");
+          tabContentSpecific.classList.remove("active");
+          dayContent.style.maxHeight = "800px";
+        });
+
+        dayContent.appendChild(tabsContainer);
+        dayDiv.appendChild(dayContent);
+
+        dayHeader.addEventListener("click", () => {
+          if (
+            dayContent.style.maxHeight &&
+            dayContent.style.maxHeight !== "0px"
+          ) {
+            dayContent.style.maxHeight = "0";
+            dayHeader.classList.remove("active");
+          } else {
+            dayContent.style.maxHeight = "800px";
+            dayHeader.classList.add("active");
+          }
+        });
+
+        workoutContainer.appendChild(dayDiv);
+      });
+    </script>
+  </body>
+</html>
