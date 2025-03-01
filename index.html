@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ayush Lifts - Workout Planner</title>
+    <link rel="stylesheet" href="deep_style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header class="app-header">
+        <h1>Ayush Lifts</h1>
+      </header>
+      <!-- General Warm-Up Section -->
+      <div class="section">
+        <div class="section-header" onclick="toggleSection(this)">
+          <h2>General Warm-Up</h2>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="section-content" id="general-warmup"></div>
+      </div>
+
+      <!-- Days Sections -->
+      <div id="workout-days"></div>
+    </div>
+    <script src="workoutSplit.js"></script>
+    <script>
+      // Utility functions
+      const createExerciseRow = (exercise) => `
+            <tr>
+                <td class="exercise-name">${exercise.exercise}</td>
+                <td class="exercise-detail">${exercise.detail}</td>
+            </tr>
+        `;
+
+      const createDaySection = (dayKey) => {
+        const day = workoutData[dayKey];
+        return `
+                <div class="section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <h2>${day.name}</h2>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="section-content">
+                        <div class="tab-nav">
+                            <button class="tab-button active" onclick="showContent('${dayKey}', 'specificWarmUp')">Warm-Up</button>
+                            <button class="tab-button" onclick="showContent('${dayKey}', 'mainExercises')">Exercises</button>
+                        </div>
+                        <table class="exercise-table" id="${dayKey}-specificWarmUp">
+                            <thead><tr><th>Exercise</th><th>Reps/Details</th></tr></thead>
+                            <tbody>${day.specificWarmUp
+                              .map(createExerciseRow)
+                              .join("")}</tbody>
+                        </table>
+                        <table class="exercise-table" id="${dayKey}-mainExercises" style="display:none">
+                            <thead><tr><th>Exercise</th><th>Reps/Details</th></tr></thead>
+                            <tbody>${day.mainExercises
+                              .map(createExerciseRow)
+                              .join("")}</tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+      };
+
+      // Toggle section visibility
+      function toggleSection(header) {
+        const section = header.parentElement;
+        section.classList.toggle("active");
+      }
+
+      // Show content and update tabs
+      function showContent(dayKey, type) {
+        const parent = document.getElementById(
+          `${dayKey}-${type}`
+        ).parentElement;
+        parent
+          .querySelectorAll(".exercise-table")
+          .forEach((t) => (t.style.display = "none"));
+        parent
+          .querySelectorAll(".tab-button")
+          .forEach((b) => b.classList.remove("active"));
+
+        document.getElementById(`${dayKey}-${type}`).style.display = "table";
+        event.target.classList.add("active");
+      }
+
+      // Initialize app
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("general-warmup").innerHTML = `
+                <table class="exercise-table">
+                    <thead><tr><th>Exercise</th><th>Reps/Details</th></tr></thead>
+                    <tbody>${globalDailyWarmUp
+                      .map(createExerciseRow)
+                      .join("")}</tbody>
+                </table>
+            `;
+
+        Object.keys(workoutData).forEach((dayKey) => {
+          document.getElementById("workout-days").innerHTML +=
+            createDaySection(dayKey);
+        });
+      });
+    </script>
+  </body>
+</html>
