@@ -76,7 +76,7 @@ const workoutData = {
         detail: "3 sets x 15-20 reps",
       },
       {
-        exercise: "7. Hanging Leg Raises",
+        exercise: "Core - Hanging Leg Raises",
         detail: "3 sets x 12-15 reps",
       },
     ],
@@ -127,11 +127,11 @@ const workoutData = {
         detail: "3 sets x 10-12 reps",
       },
       {
-        exercise: "8. Hanging Leg Raises",
+        exercise: "Core - Hanging Leg Raises",
         detail: "3 sets x 12-15 reps",
       },
       {
-        exercise: "9. Bird Dogs",
+        exercise: "Core - Bird Dogs",
         detail: "3 sets x 20s holds/side",
       },
     ],
@@ -182,7 +182,7 @@ const workoutData = {
         detail: "3 sets x 15–20 reps (rear delts)",
       },
       {
-        exercise: "8. Russian Twists",
+        exercise: "Core - Russian Twists",
         detail: "3 sets x 20 reps/side",
       },
     ],
@@ -229,7 +229,7 @@ const workoutData = {
         detail: "3 sets x 15-20 reps",
       },
       {
-        exercise: "7. Plank with Shoulder Taps",
+        exercise: "Core - Plank with Shoulder Taps",
         detail: "3 sets x 45-60 seconds",
       },
     ],
@@ -280,11 +280,11 @@ const workoutData = {
         detail: "3 sets x 12-15 reps",
       },
       {
-        exercise: "8. Core - Cable Woodchoppers",
+        exercise: "Core - Cable Woodchoppers",
         detail: "3 sets x 12-15 reps/side",
       },
       {
-        exercise: "9. Back Extensions",
+        exercise: "Core - Back Extensions",
         detail: "3 sets x 12-15 reps",
       },
     ],
