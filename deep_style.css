@@ -30,8 +30,6 @@ body {
   font-style: normal;
   text-align: center;
   color: green;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .app-header h1 {
@@ -40,7 +38,9 @@ body {
   font-weight: 700;
   letter-spacing: -0.5px;
 }
-
+.Logo {
+  width: 60%;
+}
 .section {
   background: white;
   border-radius: 8px;
@@ -182,7 +182,7 @@ body {
   }
 
   .section-content {
-    padding: 12px;
+    padding: 12px 0 0 0;
   }
 }
 
