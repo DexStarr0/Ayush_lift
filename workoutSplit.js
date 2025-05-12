@@ -53,7 +53,7 @@ const workoutData = {
     mainExercises: [
       {
         exercise: "1. Incline Dumbbell Press",
-        detail: "4 sets x 8-12 reps",
+        detail: "4 sets x 8-12 reps (Upper chest)",
       },
       {
         exercise: "2. Incline Cable Flyes (Low-to-High)",
@@ -61,11 +61,11 @@ const workoutData = {
       },
       {
         exercise: "3. Cable Chest Flyes (30° Incline)",
-        detail: "3 sets x 12-15 reps + drop set",
+        detail: "3 sets x 12-15 reps + dropset",
       },
       {
         exercise: "4. Weighted Dips",
-        detail: "3 sets x 8-10 reps",
+        detail: "3 sets x 8-10 reps (Lower chest/triceps)",
       },
       {
         exercise: "5. Overhead Tricep Extension",
@@ -104,7 +104,7 @@ const workoutData = {
       },
       {
         exercise: "2. Deadlift",
-        detail: "4 sets x 5-7 reps",
+        detail: "4 sets x 5-7 reps (Posterior chain)",
       },
       {
         exercise: "3. Bent-Over Barbell Rows",
@@ -116,7 +116,7 @@ const workoutData = {
       },
       {
         exercise: "5. Face Pulls",
-        detail: "4 sets x 15-20 reps",
+        detail: "4 sets x 15-20 reps (Rear delts)",
       },
       {
         exercise: "6. Preacher Curl",
@@ -127,63 +127,47 @@ const workoutData = {
         detail: "3 sets x 10-12 reps",
       },
       {
-        exercise: "Core - Hanging Leg Raises",
-        detail: "3 sets x 12-15 reps",
-      },
-      {
         exercise: "Core - Bird Dogs",
         detail: "3 sets x 20s holds/side",
       },
     ],
   },
   "Day 3": {
-    name: "Day 3: Legs & Shoulders (Heavy Legs + Delts)",
+    name: "Day 3: Shoulders (Full Delt Emphasis)",
     specificWarmUp: [
       {
-        exercise: "1. Bodyweight Squats",
-        detail: "2 sets x 20 reps: focus on depth.",
+        exercise: "1. Band External Rotations",
+        detail: "2 sets x 15 reps/side",
       },
       {
-        exercise: "2. Glute Bridges",
-        detail: "2 sets x 15 reps: fire up the posterior chain.",
-      },
-      {
-        exercise: "3. Empty-Bar Overhead Press",
-        detail: "2 sets x 12 reps",
+        exercise: "2. Scapular Push-Ups",
+        detail: "2 sets x 10 reps",
       },
     ],
     mainExercises: [
       {
-        exercise: "1. Barbell Back Squats",
-        detail: "4 sets x 6-8 reps",
+        exercise: "1. Seated Dumbbell Overhead Press",
+        detail: "4 sets x 8-12 reps (Anterior delts)",
       },
       {
         exercise: "2. Arnold Press",
-        detail: "4 sets x 8-12 reps",
+        detail: "4 sets x 8-12 reps (360° delt activation)",
       },
       {
-        exercise: "3. Lateral Raises (Pyramid)",
-        detail: "4 sets x 12-20 reps",
+        exercise: "3. Cable Lateral Raises",
+        detail: "4 sets x 15-20 reps (Side delts)",
       },
       {
-        exercise: "4. Romanian Deadlifts",
-        detail: "4 sets x 8-10 reps",
+        exercise: "4. Front Raises",
+        detail: "3 sets x 12-15 reps (Anterior delt isolation)",
       },
       {
-        exercise: "5. Hamstring Curls",
-        detail: "3 sets x 12-15 reps",
+        exercise: "5. Reverse Pec Deck Flyes",
+        detail: "3 sets x 15-20 reps (Rear delts)",
       },
       {
-        exercise: "6. Walking Lunges - Optional",
-        detail: "3 sets x 12/leg",
-      },
-      {
-        exercise: "7. Reverse Pec Deck Flyes",
-        detail: "3 sets x 15–20 reps (rear delts)",
-      },
-      {
-        exercise: "Core - Russian Twists",
-        detail: "3 sets x 20 reps/side",
+        exercise: "Core - Plank with Shoulder Taps",
+        detail: "3 sets x 45-60 seconds",
       },
     ],
   },
@@ -206,11 +190,11 @@ const workoutData = {
     mainExercises: [
       {
         exercise: "1. Flat Barbell Bench Press",
-        detail: "4 sets x 6-8 reps",
+        detail: "4 sets x 6-8 reps (Mid-chest strength)",
       },
       {
         exercise: "2. Incline Hex Press",
-        detail: "4 sets x 8-12 reps",
+        detail: "4 sets x 8-12 reps (Upper chest squeeze)",
       },
       {
         exercise: "3. Cable Flyes (Mid-Chest Height)",
@@ -229,8 +213,8 @@ const workoutData = {
         detail: "3 sets x 15-20 reps",
       },
       {
-        exercise: "Core - Plank with Shoulder Taps",
-        detail: "3 sets x 45-60 seconds",
+        exercise: "Core - Russian Twists",
+        detail: "3 sets x 20 reps/side",
       },
     ],
   },
@@ -264,7 +248,7 @@ const workoutData = {
         detail: "3 sets x 12-15 reps",
       },
       {
-        exercise: "4. Cable Upright Rows (Wide Grip)",
+        exercise: "4. Cable Upright Rows (Wide Grip) or Wide-Grip T-Bar Rows",
         detail: "4 sets x 12-15 reps",
       },
       {
@@ -283,14 +267,10 @@ const workoutData = {
         exercise: "Core - Cable Woodchoppers",
         detail: "3 sets x 12-15 reps/side",
       },
-      {
-        exercise: "Core - Back Extensions",
-        detail: "3 sets x 12-15 reps",
-      },
     ],
   },
   "Day 6": {
-    name: "Day 6: Legs & Shoulders (Hypertrophy Legs + Delts)",
+    name: "Day 6: Legs (Hypertrophy Focus)",
     specificWarmUp: [
       {
         exercise: "1. Bodyweight Squats",
@@ -301,38 +281,38 @@ const workoutData = {
         detail: "2 sets x 15 reps: fire up the posterior chain.",
       },
       {
-        exercise: "3. Scapular Push-Ups",
-        detail: "2 sets x 10 reps: strengthen shoulder blades.",
+        exercise: "3. Ankle Rolls",
+        detail: "2 sets x 10 reps/side",
       },
     ],
     mainExercises: [
       {
-        exercise: "1. Bulgarian Split Squats",
+        exercise: "1. Barbell Back Squats",
+        detail: "4 sets x 6-8 reps (Heavy strength)",
+      },
+      {
+        exercise: "2. Romanian Deadlifts",
+        detail: "4 sets x 8-10 reps (Hamstrings/glutes)",
+      },
+      {
+        exercise: "3. Leg Press",
+        detail: "4 sets x 15-20 reps (Quad hypertrophy)",
+      },
+      {
+        exercise: "4. Bulgarian Split Squats",
         detail: "4 sets x 10-12 reps/leg",
       },
       {
-        exercise: "2. Leg Press",
-        detail: "4 sets x 15-20 reps",
-      },
-      {
-        exercise: "3. Glute-Focused Hip Thrusts",
+        exercise: "5. Glute-Focused Hip Thrusts",
         detail: "3 sets x 10-12 reps",
       },
       {
-        exercise: "4. Standing Calf Raises",
-        detail: "4 sets x 20-25 reps",
-      },
-      {
-        exercise: "5. Seated Dumbbell Overhead Press",
-        detail: "4 sets x 8-12 reps",
-      },
-      {
-        exercise: "6. Cable Lateral Raises",
-        detail: "3 sets x 15-20 reps",
-      },
-      {
-        exercise: "7. Front Raises",
+        exercise: "6. Hamstring Curls",
         detail: "3 sets x 12-15 reps",
+      },
+      {
+        exercise: "7. Standing Calf Raises",
+        detail: "4 sets x 20-25 reps",
       },
     ],
   },
