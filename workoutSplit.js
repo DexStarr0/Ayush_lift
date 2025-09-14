@@ -34,8 +34,8 @@ const globalDailyWarmUp = [
 ];
 
 const workoutData = {
-  "Day 1": {
-    name: "Day 1: Chest & Triceps (Upper Chest Focus)",
+  "Day 4": {
+    name: "Day 4: Chest & Triceps (Upper Chest Focus)",
     specificWarmUp: [
       {
         exercise: "1. Band Chest Stretch",
@@ -81,8 +81,8 @@ const workoutData = {
       },
     ],
   },
-  "Day 2": {
-    name: "Day 2: Back & Biceps (Rear Delts + Thickness)",
+  "Day 5": {
+    name: "Day 5: Back & Biceps (Rear Delts + Thickness)",
     specificWarmUp: [
       {
         exercise: "1. Lat Stretch",
@@ -132,8 +132,8 @@ const workoutData = {
       },
     ],
   },
-  "Day 3": {
-    name: "Day 3: Shoulders (Full Delt Emphasis)",
+  "Day 6": {
+    name: "Day 6: Shoulders (Full Delt Emphasis)",
     specificWarmUp: [
       {
         exercise: "1. Band External Rotations",
@@ -171,8 +171,8 @@ const workoutData = {
       },
     ],
   },
-  "Day 4": {
-    name: "Day 4: Chest & Triceps (Full Chest + Pump)",
+  "Day 1": {
+    name: "Day 1: Chest & Triceps (Full Chest + Pump)",
     specificWarmUp: [
       {
         exercise: "1. Band Chest Stretch",
@@ -218,8 +218,8 @@ const workoutData = {
       },
     ],
   },
-  "Day 5": {
-    name: "Day 5: Back & Biceps (Upper Back + Width)",
+  "Day 2": {
+    name: "Day 2: Back & Biceps (Upper Back + Width)",
     specificWarmUp: [
       {
         exercise: "1. Lat Stretch",
@@ -269,8 +269,8 @@ const workoutData = {
       },
     ],
   },
-  "Day 6": {
-    name: "Day 6: Legs (Hypertrophy Focus)",
+  "Day 3": {
+    name: "Day 3: Legs (Hypertrophy Focus)",
     specificWarmUp: [
       {
         exercise: "1. Bodyweight Squats",
