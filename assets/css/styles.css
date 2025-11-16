@@ -1,0 +1,495 @@
+@import url("https://fonts.googleapis.com/css2?family=Style+Script&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
+
+:root {
+  --primary-color: #2a9d8f;
+  --secondary-color: #264653;
+  --accent-color: #1fa8f5;
+  --background-color: #f8f9fa;
+  --text-color: #2b2d42;
+  --border-color: #ddd;
+  --table-header-bg: #ececec;
+  --table-row-alt: #f8f8f8;
+  --app-content-background-color: #c0d8ec;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --error-color: #f44336;
+  --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-heavy: 0 8px 24px rgba(0, 0, 0, 0.15);
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 15px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 14px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 120px;
+}
+
+/* Header */
+.app-header {
+  font-family: "Style Script", cursive;
+  font-weight: 400;
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  position: relative;
+  padding: 10px 0;
+}
+
+.app-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--primary-color),
+    transparent
+  );
+  border-radius: 2px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.Logo {
+  width: 60%;
+  max-width: 300px;
+}
+
+/* Main Content Area */
+#workout-display {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+
+#workout-display:hover {
+  box-shadow: var(--shadow-medium);
+}
+
+#workout-display h2 {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: white;
+  margin: 0;
+  padding: 15px 20px;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* Tab Navigation */
+.tab-nav {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  background: white;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tab-button {
+  padding: 12px 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #666;
+  transition: var(--transition);
+  position: relative;
+  margin-bottom: -1px;
+  border: 1px solid transparent;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  font-weight: 500;
+  flex: 1;
+  text-align: center;
+}
+
+.tab-button:hover {
+  color: var(--primary-color);
+  background-color: rgba(42, 157, 143, 0.05);
+}
+
+.tab-button.active {
+  color: var(--primary-color);
+  border-bottom: 3px solid var(--primary-color);
+  font-weight: 600;
+  background-color: rgba(42, 157, 143, 0.08);
+}
+
+/* Exercise Table */
+.exercise-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+}
+
+.exercise-table th,
+.exercise-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.exercise-table th {
+  background: linear-gradient(to bottom, #f5f5f5, #e8e8e8);
+  font-weight: 600;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.exercise-table tr:nth-child(even) {
+  background-color: var(--table-row-alt);
+}
+
+.exercise-table tr:hover {
+  background-color: rgba(42, 157, 143, 0.05);
+  transform: translateY(-1px);
+  transition: var(--transition);
+}
+
+.exercise-name {
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 1rem;
+}
+
+.exercise-detail {
+  color: #555;
+  font-size: 0.9em;
+}
+
+/* Footer */
+.fotter {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Footer Tabbar - REDESIGNED */
+.tabbar {
+  background: transparent;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: visible;
+}
+
+.tabbar ul,
+.tabbar li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tabbar ul {
+  position: relative;
+  bottom: 15px;
+  width: 100%;
+  height: 70px;
+  background-color: white;
+  align-self: flex-end;
+  justify-content: space-around;
+  height: 100%;
+  display: flex;
+  padding: 0 10px;
+  border-radius: 40px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  margin: 0;
+  left: 0;
+  transform: none;
+}
+.tabbar li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+  transition: var(--transition);
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  color: #888;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.tabbar li span {
+  font-size: 1.4rem;
+  transition: var(--transition);
+}
+
+.tabbar li::after {
+  content: attr(data-day);
+  font-size: 0.65rem;
+  opacity: 0;
+  transition: var(--transition);
+  position: absolute;
+  bottom: -20px;
+  white-space: nowrap;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.tabbar li:hover::after {
+  opacity: 1;
+}
+
+/* New Tab Style - Rounded with colored background */
+.tab-style2 ul {
+  justify-content: space-around;
+  position: relative;
+}
+
+.tab-style2 li {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.tab-style2 .active {
+  width: 60px;
+  height: 60px;
+  transform: translateY(-25px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tab-style2 .active span {
+  font-size: 1.6rem;
+  color: white !important;
+  filter: brightness(0) invert(1);
+}
+
+/* Remove the old pseudo-element design */
+.tab-style2 .active:before,
+.tab-style2 .active:after {
+  display: none;
+}
+
+/* Day Active States with solid colors */
+.Day_1.active {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.Day_2.active {
+  background-color: #a83232;
+  color: white;
+}
+
+.Day_3.active {
+  background-color: #e67e22;
+  color: white;
+}
+
+.Day_4.active {
+  background-color: #27ae60;
+  color: white;
+}
+
+.Day_5.active {
+  background-color: #8e44ad;
+  color: white;
+}
+
+.Day_6.active {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Loading Animation */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .app-header h1 {
+    font-size: 2.5rem;
+    padding: 1rem 0;
+  }
+
+  .tab-button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+
+  .exercise-table th,
+  .exercise-table td {
+    padding: 12px 14px;
+  }
+
+  .tabbar {
+    height: 85px;
+  }
+
+  .tabbar ul {
+    height: 65px;
+    border-radius: 35px;
+    bottom: 12px;
+  }
+
+  .tabbar li {
+    width: 45px;
+    height: 45px;
+  }
+
+  .tabbar li span {
+    font-size: 1.3rem;
+  }
+
+  .tab-style2 .active {
+    width: 55px;
+    height: 55px;
+    transform: translateY(-22px);
+  }
+
+  .tab-style2 .active span {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tab-button {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .exercise-table {
+    font-size: 0.9rem;
+  }
+
+  .exercise-table th,
+  .exercise-table td {
+    padding: 10px 12px;
+  }
+
+  .tabbar {
+    height: 80px;
+  }
+
+  .tabbar ul {
+    height: 60px;
+    border-radius: 30px;
+    bottom: 10px;
+    margin: 0 10px;
+    max-width: calc(100% - 20px);
+  }
+
+  .tabbar li {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tabbar li span {
+    font-size: 1.2rem;
+  }
+
+  .tab-style2 .active {
+    width: 50px;
+    height: 50px;
+    transform: translateY(-20px);
+  }
+
+  .tab-style2 .active span {
+    font-size: 1.4rem;
+  }
+
+  .app-header h1 {
+    font-size: 2rem;
+  }
+
+  .tabbar li::after {
+    font-size: 0.6rem;
+    bottom: -18px;
+    padding: 2px 6px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .fotter {
+    display: none;
+  }
+
+  .container {
+    padding-bottom: 0;
+  }
+
+  #workout-display {
+    box-shadow: none;
+  }
+}
